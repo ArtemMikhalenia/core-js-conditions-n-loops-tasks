@@ -111,7 +111,46 @@ function isIsoscelesTriangle(a, b, c) {
  *  26  => XXVI
  */
 function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+  // let result = '';
+  // const obj = {
+  //   1: 'I',
+  //   2: 'II',
+  //   3: 'III',
+  //   4: 'IV',
+  //   5: 'V',
+  //   6: 'VI',
+  //   7: 'VII',
+  //   8: 'VIII',
+  //   9: 'IX',
+  //   10: 'X',
+  // };
+  // for (let i = 1; i <= Object.keys(obj).length; i += 1) {
+  //   if (i === num && num <= 10) {
+  //     result += obj[i];
+  //     return `${result}`;
+  //   }
+  //   if (num >= 20 && num < 30) {
+  //     num -= 20;
+  //     for (let j = 1; j <= Object.keys(obj).length; j += 1) {
+  //       if (j === num) {
+  //         result += obj[j];
+  //         return `XX${result}`;
+  //       }
+  //       return `XX`;
+  //     }
+  //   }
+  //   if (num >= 30 && num < 40) {
+  //     num -= 30;
+  //     for (let k = 1; k <= Object.keys(obj).length; k += 1) {
+  //       if (k === num) {
+  //         result += obj[k];
+  //         return `XXX${result}`;
+  //       }
+  //       return `XXX`;
+  //     }
+  //   }
+  // }
+  // return result;
 }
 
 /**
@@ -182,8 +221,18 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let number = num;
+  const result = false;
+
+  while (number > 0) {
+    const digitFromNum = number % 10;
+    number = Math.floor(number / 10);
+    if (digitFromNum === digit) {
+      return !result;
+    }
+  }
+  return result;
 }
 
 /**
