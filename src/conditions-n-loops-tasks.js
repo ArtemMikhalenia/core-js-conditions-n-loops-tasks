@@ -118,47 +118,41 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  // let result = '';
-  // const obj = {
-  //   1: 'I',
-  //   2: 'II',
-  //   3: 'III',
-  //   4: 'IV',
-  //   5: 'V',
-  //   6: 'VI',
-  //   7: 'VII',
-  //   8: 'VIII',
-  //   9: 'IX',
-  //   10: 'X',
-  // };
-  // for (let i = 1; i <= Object.keys(obj).length; i += 1) {
-  //   if (i === num && num <= 10) {
-  //     result += obj[i];
-  //     return `${result}`;
-  //   }
-  //   if (num >= 20 && num < 30) {
-  //     num -= 20;
-  //     for (let j = 1; j <= Object.keys(obj).length; j += 1) {
-  //       if (j === num) {
-  //         result += obj[j];
-  //         return `XX${result}`;
-  //       }
-  //       return `XX`;
-  //     }
-  //   }
-  //   if (num >= 30 && num < 40) {
-  //     num -= 30;
-  //     for (let k = 1; k <= Object.keys(obj).length; k += 1) {
-  //       if (k === num) {
-  //         result += obj[k];
-  //         return `XXX${result}`;
-  //       }
-  //       return `XXX`;
-  //     }
-  //   }
-  // }
-  // return result;
+function convertToRomanNumerals(num) {
+  let result = '';
+  let number = num;
+  const obj = {
+    1: 'I',
+    2: 'II',
+    3: 'III',
+    4: 'IV',
+    5: 'V',
+    6: 'VI',
+    7: 'VII',
+    8: 'VIII',
+    9: 'IX',
+    10: 'X',
+  };
+
+  if (number >= 10 && number < 20) {
+    number -= 10;
+    result += 'X';
+  } else if (number >= 20 && number < 30) {
+    number -= 20;
+    result += 'XX';
+  } else if (number >= 30 && number < 40) {
+    number -= 30;
+    result += 'XXX';
+  }
+
+  for (let i = 1; i <= 10; i += 1) {
+    if (i === number) {
+      result += obj[i];
+      break;
+    }
+  }
+
+  return result;
 }
 
 /**
