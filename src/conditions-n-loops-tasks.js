@@ -412,6 +412,32 @@ function getSpiralMatrix(size) {
  *  ]                 ]
  */
 function rotateMatrix(/* matrix */) {
+  // const rotatedMatrix = [];
+  // for (let i = 0; i < matrix.length; i += 1) {
+  //   rotatedMatrix[i] = [];
+
+  //   for (let j = 0; j < matrix.length; j += 1) {
+  //     rotatedMatrix[i][j] = matrix[i][j];
+  //   }
+  // }
+
+  // for (let i = 0; i < matrix.length; i += 1) {
+  //   for (let j = i + 1; j < matrix.length; j += 1) {
+  //     const swapValue = rotatedMatrix[i][j];
+  //     rotatedMatrix[i][j] = rotatedMatrix[j][i];
+  //     rotatedMatrix[j][i] = swapValue;
+  //   }
+  // }
+
+  // for (let i = 0; i < matrix.length; i += 1) {
+  //   for (let j = 0; j < matrix.length / 2; j += 1) {
+  //     const swapValue = rotatedMatrix[i][j];
+  //     rotatedMatrix[i][j] = rotatedMatrix[i][matrix.length - 1 - j];
+  //     rotatedMatrix[i][matrix.length - 1 - j] = swapValue;
+  //   }
+  // }
+
+  // return rotatedMatrix;
   throw new Error('Not implemented');
 }
 
@@ -429,8 +455,33 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const newArr = arr;
+
+  function quickSort(low, high) {
+    if (low < high) {
+      const pivot = newArr[high];
+      let i = low - 1;
+      for (let j = low; j < high; j += 1) {
+        if (newArr[j] <= pivot) {
+          i += 1;
+          const temporary = newArr[i];
+          newArr[i] = newArr[j];
+          newArr[j] = temporary;
+        }
+      }
+      const temporary = newArr[i + 1];
+      newArr[i + 1] = newArr[high];
+      newArr[high] = temporary;
+
+      const index = i + 1;
+      quickSort(low, index - 1);
+      quickSort(index + 1, high);
+    }
+  }
+
+  quickSort(0, newArr.length - 1);
+  return newArr;
 }
 
 /**
