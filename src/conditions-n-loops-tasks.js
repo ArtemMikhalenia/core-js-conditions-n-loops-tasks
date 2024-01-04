@@ -411,34 +411,25 @@ function getSpiralMatrix(size) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(/* matrix */) {
-  // const rotatedMatrix = [];
-  // for (let i = 0; i < matrix.length; i += 1) {
-  //   rotatedMatrix[i] = [];
+function rotateMatrix(matrix) {
+  const rotatedMatrix = matrix;
 
-  //   for (let j = 0; j < matrix.length; j += 1) {
-  //     rotatedMatrix[i][j] = matrix[i][j];
-  //   }
-  // }
+  for (let i = 0; i < matrix.length; i += 1) {
+    for (let j = i; j < matrix.length; j += 1) {
+      const swapElem = rotatedMatrix[i][j];
+      rotatedMatrix[i][j] = rotatedMatrix[j][i];
+      rotatedMatrix[j][i] = swapElem;
+    }
+  }
 
-  // for (let i = 0; i < matrix.length; i += 1) {
-  //   for (let j = i + 1; j < matrix.length; j += 1) {
-  //     const swapValue = rotatedMatrix[i][j];
-  //     rotatedMatrix[i][j] = rotatedMatrix[j][i];
-  //     rotatedMatrix[j][i] = swapValue;
-  //   }
-  // }
-
-  // for (let i = 0; i < matrix.length; i += 1) {
-  //   for (let j = 0; j < matrix.length / 2; j += 1) {
-  //     const swapValue = rotatedMatrix[i][j];
-  //     rotatedMatrix[i][j] = rotatedMatrix[i][matrix.length - 1 - j];
-  //     rotatedMatrix[i][matrix.length - 1 - j] = swapValue;
-  //   }
-  // }
-
-  // return rotatedMatrix;
-  throw new Error('Not implemented');
+  for (let i = 0; i < matrix.length; i += 1) {
+    for (let j = 0; j < Math.floor(matrix.length / 2); j += 1) {
+      const swapElem = rotatedMatrix[i][j];
+      rotatedMatrix[i][j] = rotatedMatrix[i][matrix.length - j - 1];
+      rotatedMatrix[i][matrix.length - j - 1] = swapElem;
+    }
+  }
+  return rotatedMatrix;
 }
 
 /**
